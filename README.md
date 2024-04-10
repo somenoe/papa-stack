@@ -1,14 +1,11 @@
-# Astro Starter Kit: Minimal
+# PAPA Stack
 
-```sh
-npm create astro@latest -- --template minimal
-```
+At first, I've chosen this setup to teach my nephew how to code. So, I'll keep things simple on the tech side. If you're interested, let's dive in together!
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- [Pico CSS](https://picocss.com/)
+- [Alpine.js](https://alpinejs.dev/)
+- [Pocketbase](https://pocketbase.io/)
+- [Astro](https://astro.build/)
 
 ## 🚀 Project Structure
 
