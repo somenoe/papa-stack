@@ -1,0 +1,40 @@
+/* Orange color for light color scheme (Default) */
+/* Can be forced with data-theme="light" */
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --pico-text-selection-color: var(--pico-color-amber-900);
+  --pico-primary: var(--pico-color-amber-300);
+  --pico-primary-background: var(--pico-color-amber-300);
+  --pico-primary-underline: var(--pico-color-amber-800);
+  --pico-primary-hover: var(--pico-color-amber-600);
+  --pico-primary-hover-background: var(--pico-color-amber-300);
+  --pico-primary-focus: var(--pico-color-amber-70);
+  --pico-primary-inverse: white;
+}
+
+/* Orange color for dark color scheme (Auto) */
+/* Automatically enabled if user has Dark mode enabled */
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --pico-text-selection-color: var(--pico-color-amber-850);
+    --pico-primary: var(--pico-color-amber-200);
+    --pico-primary-background: var(--pico-color-amber-300);
+    --pico-primary-underline: var(--pico-color-amber-700);
+    --pico-primary-hover: var(--pico-color-amber-100);
+    --pico-primary-hover-background: var(--pico-color-amber-300);
+    --pico-primary-focus: var(--pico-color-amber-800);
+    --pico-primary-inverse: white;
+  }
+}
+/* Orange color for dark color scheme (Forced) */
+/* Enabled if forced with data-theme="dark" */
+[data-theme="dark"] {
+  --pico-text-selection-color: var(--pico-color-amber-850);
+  --pico-primary: var(--pico-color-amber-200);
+  --pico-primary-background: var(--pico-color-amber-300);
+  --pico-primary-underline: var(--pico-color-amber-700);
+  --pico-primary-hover: var(--pico-color-amber-100);
+  --pico-primary-hover-background: var(--pico-color-amber-300);
+  --pico-primary-focus: var(--pico-color-amber-800);
+  --pico-primary-inverse: white;
+}

@@ -1,20 +1,48 @@
 ---
-
+import Base from "../layouts/Base.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <div x-data="{ open: false }">
-      <button @click="open = ! open">Expands</button>
-
-      <div x-show="open" x-transition>Content...</div>
-    </div>
-  </body>
-</html>
+<Base title="Home">
+  <main>
+    <section>
+      <h2 id="papa-stack"><mark>PAPA Stack</mark></h2>
+      <p class="secondary">
+        At first, I've chosen this setup to teach my nephew how to code. So,
+        I'll keep things simple on the tech side. If you're interested, let's
+        dive in together!
+      </p>
+    </section>
+    <section>
+      <h2>Examples</h2>
+      <ul>
+        <li><a href="/pico">Pico CSS</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Tools</h2>
+      <ul>
+        <li><a href="https://picocss.com/">Pico CSS</a></li>
+        <li><a href="https://alpinejs.dev/">Alpine.js</a></li>
+        <li><a href="https://pocketbase.io/">Pocketbase</a></li>
+        <li><a href="https://astro.build/">Astro</a></li>
+      </ul>
+    </section>
+  </main>
+  <style>
+    mark {
+      font-size: 3.5rem;
+      background: -webkit-linear-gradient(
+        30deg,
+        var(--pico-color-amber-300) 30%,
+        var(--pico-color-red-600)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      margin-top: 1.5rem;
+    }
+  </style>
+</Base>

@@ -1,0 +1,31 @@
+---
+import "@picocss/pico/css/pico.min.css";
+import "@picocss/pico/css/pico.colors.min.css";
+import "../styles/color-theme.css";
+import Navbar from "../components/Navbar.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Pico CSS -->
+    <meta name="color-scheme" content="light dark" />
+    <!-- Astro -->
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="container">
+    <header>
+      <Navbar />
+    </header>
+    <slot />
+  </body>
+</html>
