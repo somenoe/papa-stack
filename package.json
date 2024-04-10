@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.0",
     "@astrojs/check": "^0.5.10",
+    "@picocss/pico": "^2.0.6",
     "@types/alpinejs": "^3.13.10",
     "alpinejs": "^3.13.8",
     "astro": "^4.5.18",
