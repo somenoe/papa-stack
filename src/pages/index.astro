@@ -4,22 +4,29 @@ import Base from "../layouts/Base.astro";
 
 <Base title="Home">
   <main>
-    <section>
+    <!-- Intro -->
+    <section id="intro">
       <h2 id="papa-stack"><mark>PAPA Stack</mark></h2>
-      <p class="secondary">
+      <p>
         At first, I've chosen this setup to teach my nephew how to code. So,
         I'll keep things simple on the tech side. If you're interested, let's
         dive in together!
       </p>
     </section>
-    <section>
-      <h2>Examples</h2>
+    <!-- ./ Intro -->
+
+    <!-- Examples -->
+    <section id="examples">
+      <h3>Examples</h3>
       <ul>
         <li><a href="/pico">Pico CSS</a></li>
       </ul>
     </section>
-    <section>
-      <h2>Tools</h2>
+    <!-- ./ Examples -->
+
+    <!-- Tools -->
+    <section id="tools">
+      <h3>Tools</h3>
       <ul>
         <li><a href="https://picocss.com/">Pico CSS</a></li>
         <li><a href="https://alpinejs.dev/">Alpine.js</a></li>
@@ -27,7 +34,9 @@ import Base from "../layouts/Base.astro";
         <li><a href="https://astro.build/">Astro</a></li>
       </ul>
     </section>
+    <!-- ./ Tools -->
   </main>
+
   <style>
     mark {
       font-size: 3.5rem;
@@ -39,7 +48,8 @@ import Base from "../layouts/Base.astro";
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    h2 {
+
+    h3 {
       font-size: 1.25rem;
       margin-bottom: 0.75rem;
       margin-top: 1.5rem;
