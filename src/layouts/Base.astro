@@ -4,6 +4,8 @@ import "@picocss/pico/css/pico.colors.min.css";
 import "../styles/color-theme.css";
 import Navbar from "../components/Navbar.astro";
 
+const WEBSITE_NAME = "PAPA Stack";
+
 interface Props {
   title: string;
 }
@@ -20,7 +22,7 @@ const { title } = Astro.props;
     <meta name="color-scheme" content="light dark" />
     <!-- Astro -->
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{`${title} - ${WEBSITE_NAME}`}</title>
   </head>
   <body class="container">
     <header>
