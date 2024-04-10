@@ -18,6 +18,12 @@ const { title } = Astro.props;
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Alpine JS -->
+    <style is:global>
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
     <!-- Pico CSS -->
     <meta name="color-scheme" content="light dark" />
     <!-- Astro -->

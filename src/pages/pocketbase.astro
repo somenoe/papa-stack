@@ -1,0 +1,110 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Pocketbase Examples">
+  <main x-data="auth">
+    <!-- Auth -->
+    <section id="auth">
+      <h2>Auth with Github</h2>
+      <button @click="authWithGithub">Sign in with Github</button>
+      <button @click="logout" class="error">Log out</button>
+    </section>
+    <!-- ./ Auth -->
+
+    <!-- After Login -->
+    <section id="after-login" x-cloak x-show="isAuth">
+      <!-- Greeting Message -->
+      <br />
+      <h2>Welcome, <span x-text="userName"></span>!</h2>
+      <p>id: <span x-text="userId"></span></p>
+      <hr />
+      <!-- Update User info -->
+      <form @submit.prevent="updateUserInfo">
+        <h3>Update User Info</h3>
+
+        <label for="last-name">Name</label>
+        <input
+          x-model="name"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Enter your name"
+        />
+
+        <button type="submit">Update user info</button>
+        <p x-text="updateStatus"></p>
+      </form>
+    </section>
+    <!-- ./ After Login -->
+  </main>
+  <script>
+    import Alpine from "alpinejs";
+    import pb from "../database/pb";
+    import { Collections } from "../types/pb";
+    import type { UsersResponse } from "../types/pb";
+
+    console.log(import.meta.env.PB_URL);
+
+    Alpine.data("auth", () => ({
+      isAuth: false,
+
+      userId: "",
+      name: "",
+      userName: "",
+
+      updateStatus: "",
+
+      async init() {
+        await pb
+          .collection(Collections.Users)
+          .authRefresh<UsersResponse>()
+          .then((res) => {
+            this.userId = res.record.id;
+            this.userName = res.record.username;
+            this.name = res.record.name;
+          })
+          .catch(() => {
+            pb.authStore.clear();
+          });
+
+        this.isAuth = pb.authStore.isValid;
+      },
+
+      async authWithGithub() {
+        await pb
+          .collection<UsersResponse>(Collections.Users)
+          .authWithOAuth2({ provider: "github" })
+          .then((res) => {
+            this.userId = res.record.id;
+            this.userName = res.record.username;
+            this.name = res.record.name;
+          })
+          .catch((err) => {
+            this.updateStatus = `Error: ${err}`;
+          });
+
+        this.isAuth = pb.authStore.isValid;
+      },
+
+      async updateUserInfo() {
+        await pb
+          .collection(Collections.Users)
+          .update<UsersResponse>(pb.authStore.model!.id, {
+            name: this.name,
+          })
+          .then((res) => {
+            this.updateStatus = `User info updated: ${new Date(res.updated).toLocaleTimeString()}`;
+          })
+          .catch((err) => {
+            this.updateStatus = `Error: ${err}`;
+          });
+      },
+
+      logout() {
+        if (!confirm("Are you sure you want to log out?")) return;
+        pb.authStore.clear();
+      },
+    }));
+  </script>
+</Base>
